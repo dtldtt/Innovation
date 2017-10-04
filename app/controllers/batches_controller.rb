@@ -7,6 +7,9 @@ class BatchesController < ApplicationController
     @batches = Batch.all
   end
 
+  def home
+  end
+
   # GET /batches/1
   # GET /batches/1.json
   def show

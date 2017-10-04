@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'batches#home'
   resources :projects
   resources :batches
   
