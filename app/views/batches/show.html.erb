@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>项目类型：</strong>
+  <%= @batch.project_type %>
+</p>
+
+<p>
+  <strong>开始年份：</strong>
+  <%= @batch.year %>
+</p>
+
+<p>
+  <strong>项目阶段：</strong>
+  <%= @batch.stage %>
+</p>
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>
+
+<p>
+  <strong>该批次下的项目：</strong>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>项目名称</th>
+      <th>指导老师</th>
+      <th>审核专家</th>
+      <th>项目资金</th>
+      <th>所属学部</th>
+      <th>项目负责人</th>
+      <th>项目进度</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_in_batch.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.tutor %></td>
+        <td><%= project.expert %></td>
+        <td><%= project.funds %></td>
+        <td><%= project.institute %></td>
+        <td><%= project.leader %></td>
+        <td><%= project.status %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

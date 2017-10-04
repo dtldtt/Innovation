@@ -1,0 +1,57 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor %>
+    <%= form.text_field :tutor, id: :project_tutor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expert %>
+    <%= form.text_field :expert, id: :project_expert %>
+  </div>
+
+  <div class="field">
+    <%= form.label :funds %>
+    <%= form.number_field :funds, id: :project_funds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :institute %>
+    <%= form.text_field :institute, id: :project_institute %>
+  </div>
+
+  <div class="field">
+    <%= form.label :leader %>
+    <%= form.text_field :leader, id: :project_leader %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status, id: :project_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :batch_id %>
+    <%= form.number_field :batch_id, id: :project_batch_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

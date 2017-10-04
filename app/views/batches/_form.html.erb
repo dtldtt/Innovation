@@ -1,0 +1,32 @@
+<%= form_with(model: batch, local: true) do |form| %>
+  <% if batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
+
+      <ul>
+      <% batch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :project_type %>
+    <%= form.text_field :project_type, id: :batch_project_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year, id: :batch_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stage %>
+    <%= form.number_field :stage, id: :batch_stage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

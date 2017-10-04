@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tutor: MyString
+  expert: MyString
+  funds: 1
+  institute: MyString
+  leader: MyString
+  status: 1
+
+two:
+  name: MyString
+  tutor: MyString
+  expert: MyString
+  funds: 1
+  institute: MyString
+  leader: MyString
+  status: 1
