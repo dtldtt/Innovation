@@ -2,20 +2,25 @@ module SessionsHelper
   def log_in(*identity)
     if identity[0]=='student'
       session[:student_id]=identity[1].id
-    elsif identity[1]=='teacher'
-      #teacher
+    elsif identity[0]=='teacher'
+      session[:teacher_id]=identity[1].id
     end
   end
 
-  def current_student
-    @current_student ||= Student.find_by(id: session[:student_id])
+  def current_status(identity)
+    if identity=='student'
+      @current_student ||= Student.find_by(id: session[:student_id])
+    elsif identity=='teacher'
+      @current_teacher ||= Teacher.find_by(id: session[:teacher_id])
+      session[:admin]=@current_teacher.isAdmin
+    end
   end
 
   def logged_in?(identity)
     if identity=='student'
-      !current_student.nil? 
+      !current_status('student').nil? 
     elsif identity=='teacher'
-      #teacher
+      !current_status('teacher').nil?
     end
   end
 
@@ -24,8 +29,13 @@ module SessionsHelper
       session.delete(:student_id)
       @current_student=nil
     elsif identity=='teacher'
-      #teacher
+      session.delete(:teacher_id)
+      @current_teacher=nil
     end
+  end
+
+  def is_admin?
+    session[:admin]
   end
 
 end

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-
-  
-
   root 'sessions#new'
   get '/login/:identity', to: 'sessions#new'
   post '/login/:identity', to: 'sessions#create'
-  delete '/logout/identity', to: 'sessions#destroy'
+  delete '/logout/:identity', to: 'sessions#destroy'
+  resources :teachers
   resources :students
   resources :projects
   resources :batches

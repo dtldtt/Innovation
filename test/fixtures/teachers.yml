@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: MyString
+  name: MyString
+  institute: MyString
+  phone: MyString
+  email: MyString
+  isExpert: false
+  isAdmin: false
+
+two:
+  account: MyString
+  name: MyString
+  institute: MyString
+  phone: MyString
+  email: MyString
+  isExpert: false
+  isAdmin: false

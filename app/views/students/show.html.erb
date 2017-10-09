@@ -2,7 +2,7 @@
   <h1>Hello,<%= @student.name %>,<%= @student.account %> !</h1>
   <ul>
     <li> <%= link_to  "申报项目", new_project_path %> </li>
-    <li> <%= link_to  "log out", logout_identity_path,method: :delete  %></li>
+    <li> <%= link_to  "log out", '/logout/student',method: :delete  %></li>
   </ul>
 <% else %>
   <li> <%= link_to "Log in",'/logout/student' %> </li>

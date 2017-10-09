@@ -1,0 +1,9 @@
+<% if logged_in?('teacher')   %>
+  <h1>Hello,<%= @teacher.name %>,<%= @teacher.account %> !</h1>
+  <ul>
+    <li> <%= link_to  "查看批次", batches_url %> </li>
+    <li> <%= link_to  "log out", '/logout/teacher',method: :delete  %></li>
+  </ul>
+<% else %>
+<li> <%= link_to "Log in",'/logout/teacher' %> </li>
+<% end %>

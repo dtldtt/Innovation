@@ -18,14 +18,17 @@
         <td><%= batch.project_type %></td>
         <td><%= batch.year %></td>
         <td><%= batch.stage %></td>
-        <td><%= link_to 'Show', batch %></td>
-        <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if is_admin? %>
+          <td><%= link_to 'Show', batch %></td>
+          <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
+          <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Batch', new_batch_path %>
+<% if is_admin? %>
+  <%= link_to 'New Batch', new_batch_path %>  
+<% end %>

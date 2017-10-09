@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007055900) do
+ActiveRecord::Schema.define(version: 20171009111856) do
 
   create_table "batches", force: :cascade do |t|
     t.string "project_type"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(version: 20171007055900) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.index ["account"], name: "index_students_on_account", unique: true
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "account"
+    t.string "name"
+    t.string "institute"
+    t.string "phone"
+    t.string "email"
+    t.boolean "isExpert"
+    t.boolean "isAdmin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["account"], name: "index_teachers_on_account", unique: true
   end
 
 end

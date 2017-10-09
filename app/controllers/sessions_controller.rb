@@ -18,10 +18,17 @@ class SessionsController < ApplicationController
       else
         #error
         flash.now[:danger]='Invalid account/password combination'
-        render 'new'
+        render 'new_student'
       end
     elsif params[:identity]=='teacher'
-      #teacher
+      teacher=Teacher.find_by(account:params[:session][:account])
+      if teacher && teacher.authenticate(params[:session][:password])
+        log_in 'teacher',teacher
+        redirect_to teacher
+      else
+        flash.now[:danger]='Invalid account/password combination'
+        render 'new_teacher'
+      end
     end
   end
 
