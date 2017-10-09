@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   
 
   root 'sessions#new'
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/login/:identity', to: 'sessions#new'
+  post '/login/:identity', to: 'sessions#create'
+  delete '/logout/identity', to: 'sessions#destroy'
   resources :students
   resources :projects
   resources :batches
