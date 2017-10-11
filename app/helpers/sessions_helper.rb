@@ -12,7 +12,9 @@ module SessionsHelper
       @current_student ||= Student.find_by(id: session[:student_id])
     elsif identity=='teacher'
       @current_teacher ||= Teacher.find_by(id: session[:teacher_id])
-      session[:admin]=@current_teacher.isAdmin
+      if @current_teacher
+        session[:admin]=@current_teacher.isAdmin
+      end
     end
   end
 

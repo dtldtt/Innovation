@@ -1,5 +1,6 @@
 class BatchesController < ApplicationController
-  before_action :set_batch, only: [:show, :edit, :update, :destroy]
+  before_action :set_batch, only: [:show, :edit, :update, :destroy] 
+  before_action :require_login
 
   # GET /batches
   # GET /batches.json
@@ -74,5 +75,12 @@ class BatchesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
       params.require(:batch).permit(:project_type, :year, :stage)
+    end
+
+    def require_login
+      unless logged_in?("teacher")
+        flash[:danger]='只有老师可以查看批次，您不是老师，或者请先登录！'
+        redirect_to '/login/teacher'
+      end
     end
 end
